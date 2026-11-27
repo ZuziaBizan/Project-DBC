@@ -1,7 +1,7 @@
 from pyspark.sql.functions import col, lower, trim, split, element_at, when, lit
 
 # ==================================================
-# 3. Gold Layer (simple learning version)
+# 3. Gold Layer
 # ==================================================
 
 # 1. Load Silver tables and the brands dictionary CSV
@@ -9,7 +9,7 @@ df_cert = spark.table("workspace.default.cert_active_silver")
 df_tlds = spark.table("workspace.default.tlds_silver")
 df_tranco = spark.table("workspace.default.tranco_silver")
 
-# Update the path if your CSV file is stored in another location
+# File path
 df_brands = (
     spark.read.option("header", True)
     .csv("/Volumes/workspace/default/raw_data/brands.csv")
